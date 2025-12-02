@@ -122,7 +122,7 @@
           clearInterval(timer);
         } else {
           const eta = new Date(end);
-          noteEl.textContent = ' ';
+          noteEl.textContent = 'Expected return: ' + eta.toLocaleString();
         }
       }
 
