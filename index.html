@@ -3,80 +3,132 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Apply — Your Name / Team</title>
-  <meta name="description" content="Apply page — short professional landing for applications, resume and contact." />
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Site maintenance — we'll be back soon</title>
+  <meta name="description" content="Site is under maintenance. We'll be back in 24 hours." />
+  <style>
+    /* Minimal, modern styling suitable for a maintenance page */
+    :root{
+      --bg:#0f1724;
+      --card:#121827;
+      --muted:#98a0b3;
+      --accent:#60a5fa;
+      --white:#f8fafc;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#071025);color:var(--white)}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:2rem}
+    .card{
+      width:100%;max-width:720px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border:1px solid rgba(255,255,255,0.04);backdrop-filter: blur(6px);
+      padding:2rem;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.6);
+    }
+    .logo{font-weight:700;letter-spacing:0.2px;color:var(--white);text-decoration:none}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+    h1{margin:0;font-size:1.6rem}
+    p.lead{margin:0.5rem 0 1.5rem;color:var(--muted)}
+    .countdown{display:flex;gap:12px;justify-content:center;margin:1.25rem 0;flex-wrap:wrap}
+    .unit{min-width:84px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+          border-radius:8px;padding:0.8rem 1rem;text-align:center;border:1px solid rgba(255,255,255,0.03)}
+    .value{font-size:1.5rem;font-weight:700}
+    .label{font-size:0.75rem;color:var(--muted);margin-top:0.25rem}
+    .note{font-size:0.9rem;color:var(--muted);text-align:center}
+    .actions{display:flex;gap:10px;justify-content:center;margin-top:1rem}
+    a.btn{display:inline-block;padding:0.6rem 1rem;border-radius:8px;text-decoration:none;font-weight:600}
+    .btn.primary{background:var(--accent);color:#062236}
+    .btn.ghost{border:1px solid rgba(255,255,255,0.06);color:var(--white);background:transparent}
+    footer{margin-top:1.25rem;text-align:center;color:var(--muted);font-size:0.85rem}
+    @media (max-width:420px){.unit{min-width:64px;padding:0.6rem 0.6rem}.value{font-size:1.2rem}}
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <div class="brand">
-        <a href="/" class="logo">Your Name</a>
-        <nav class="nav">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
+  <div class="wrap">
+    <div class="card" role="main" aria-labelledby="maint-heading">
+      <header>
         <div>
-          <h1>Hi — I’m <span class="accent">Your Name</span>.</h1>
-          <p class="lead">Computer/EE Engineer focused on embedded systems, energy-harvesting sensors, and on-device ML. Open to graduate/research roles and collaborations.</p>
-          <p class="cta-row">
-            <a class="btn" href="/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-            <a class="btn secondary" href="#contact">Contact</a>
-          </p>
+          <a class="logo" href="/">Your Name</a>
         </div>
-        <div class="card profile-card">
-          <dl>
-            <dt>Location</dt><dd>Amherst, MA</dd>
-            <dt>Availability</dt><dd>Fall 2026</dd>
-            <dt>Skills</dt><dd>Embedded C · Python · RTOS · ML on edge</dd>
-          </dl>
+        <div aria-hidden="true" style="color:var(--muted);font-size:0.9rem">Maintenance</div>
+      </header>
+
+      <h1 id="maint-heading">Site under maintenance</h1>
+      <p class="lead">We're performing scheduled maintenance. We'll be back online shortly — thank you for your patience.</p>
+
+      <div style="text-align:center">
+        <div id="countdown" class="countdown" aria-live="polite" aria-atomic="true">
+          <div class="unit"><div class="value" id="days">--</div><div class="label">Days</div></div>
+          <div class="unit"><div class="value" id="hours">--</div><div class="label">Hours</div></div>
+          <div class="unit"><div class="value" id="minutes">--</div><div class="label">Minutes</div></div>
+          <div class="unit"><div class="value" id="seconds">--</div><div class="label">Seconds</div></div>
+        </div>
+
+        <p class="note" id="note">Expected downtime: 24 hours from the time this page first loaded.</p>
+
+        <div class="actions" role="group" aria-label="Actions">
+          <a class="btn primary" href="mailto:you@example.com?subject=Site%20maintenance%20inquiry">Contact</a>
+          <a class="btn ghost" href="/" onclick="event.preventDefault(); alert('Homepage is offline for maintenance.');">Homepage</a>
         </div>
       </div>
-    </section>
 
-    <section id="about" class="container section">
-      <h2>About</h2>
-      <p>I design sensor-enabled embedded systems that combine principled hardware/firmware co-design with on-device inference. My honors research focused on robustness and low-maintenance sensing platforms.</p>
-    </section>
-
-    <section id="projects" class="container section">
-      <h2>Selected Projects</h2>
-      <ul class="projects">
-        <li>
-          <h3>Edge Vision System</h3>
-          <p>Quantized convolutional models on Jetson for PPE detection with power/perf tradeoffs.</p>
-        </li>
-        <li>
-          <h3>Low-Power Thermal Logger</h3>
-          <p>Energy-harvesting scheduler and long-duration logging firmware for remote deployment.</p>
-        </li>
-      </ul>
-    </section>
-
-    <section id="contact" class="container section">
-      <h2>Contact</h2>
-      <p>If you’d like my CV or references, email me at <a href="mailto:you@example.com">you@example.com</a>.</p>
-      <p class="small">Or link to a contact form / institution application as needed.</p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Your Name — <a href="https://github.com/YOUR_GH_USER" target="_blank" rel="noopener">GitHub</a></p>
+      <footer>
+        <small>© <span id="year"></span> Your Name</small>
+      </footer>
     </div>
-  </footer>
+  </div>
 
   <script>
+    // Set footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Maintain a persistent maintenance end time so reloads don't reset the 24-hour countdown.
+    (function(){
+      const STORAGE_KEY = 'maintenanceEnd_v1';
+      const stored = localStorage.getItem(STORAGE_KEY);
+      let end;
+      if (stored) {
+        // try parse; if invalid or already passed, reset to 24h from now
+        const t = Number(stored);
+        if (!isNaN(t) && t > Date.now()) end = t;
+      }
+      if (!end) {
+        end = Date.now() + 24 * 60 * 60 * 1000; // 24 hours from now
+        localStorage.setItem(STORAGE_KEY, String(end));
+      }
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minsEl = document.getElementById('minutes');
+      const secsEl = document.getElementById('seconds');
+      const noteEl = document.getElementById('note');
+
+      function update() {
+        const now = Date.now();
+        const diff = Math.max(0, end - now);
+
+        const secs = Math.floor(diff / 1000) % 60;
+        const mins = Math.floor(diff / (1000 * 60)) % 60;
+        const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+        daysEl.textContent = String(days).padStart(2,'0');
+        hoursEl.textContent = String(hours).padStart(2,'0');
+        minsEl.textContent = String(mins).padStart(2,'0');
+        secsEl.textContent = String(secs).padStart(2,'0');
+
+        if (diff === 0) {
+          // Done
+          noteEl.textContent = 'Maintenance complete — please refresh.';
+          // Optionally clear the stored key so next visitor sees default behavior
+          localStorage.removeItem(STORAGE_KEY);
+          clearInterval(timer);
+        } else {
+          const eta = new Date(end);
+          noteEl.textContent = 'Expected return: ' + eta.toLocaleString();
+        }
+      }
+
+      update();
+      const timer = setInterval(update, 1000);
+    })();
   </script>
 </body>
 </html>
