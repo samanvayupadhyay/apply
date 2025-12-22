@@ -1,42 +1,42 @@
 :root{
-  --bg:#ffffff;
-  --muted:#6b7280;
-  --primary:#0f172a;
-  --accent:#0ea5a4;
-  --card:#f8fafc;
-  --radius:12px;
-  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --bg:#fafafa; --card:#fff; --muted:#6b7280; --accent:#0f172a; --brand:#0b5cff;
+  --radius:12px; --pad:18px; font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
-
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--primary);line-height:1.5}
-.container{max-width:980px;margin:0 auto;padding:2rem}
-.site-header{border-bottom:1px solid #eef2f7;background:linear-gradient(180deg, rgba(255,255,255,0.6), transparent)}
-.brand{display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:700;text-decoration:none;color:var(--primary);font-size:1.05rem}
-.nav a{margin-left:1rem;text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem}
+html,body{height:100%;margin:0;background:var(--bg);color:#0b1220}
+.container{max-width:980px;margin:0 auto;padding:28px}
+.site-header{background:transparent;padding:12px 0}
+.header-grid{display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;color:var(--accent);text-decoration:none}
+.nav a{margin-left:16px;color:var(--muted);text-decoration:none}
+.nav a:hover{color:var(--brand)}
+.hero{display:flex;gap:24px;align-items:flex-start;padding:28px 0}
+.hero-left{flex:1}
+.profile-card{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+.lead{color:var(--muted);margin-top:6px}
+.cta-row{margin-top:14px}
+.btn{display:inline-block;padding:10px 14px;border-radius:9px;text-decoration:none;background:var(--brand);color:white;font-weight:600;margin-right:8px}
+.btn.secondary{background:transparent;border:1px solid #dde8ff;color:var(--brand)}
+.section{padding:18px 0}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.project-tile{display:block;background:var(--card);padding:16px;border-radius:10px;text-decoration:none;color:inherit;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+.project-tile h3{margin:0 0 6px 0}
+.small{color:var(--muted);font-size:0.95rem}
+.contact-section p{margin:6px 0}
 
-.hero{padding:3rem 0}
-.hero-grid{display:grid;grid-template-columns:1fr 320px;gap:2rem;align-items:start}
-.hero h1{font-size:2rem;margin:0 0 .6rem}
-.lead{color:var(--muted);margin-bottom:1rem}
-.accent{color:var(--accent);font-weight:700}
-.btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;background:var(--primary);color:#fff;text-decoration:none;font-weight:600;margin-right:.6rem}
-.btn.secondary{background:transparent;border:1px solid #d1d5db;color:var(--primary)}
+.site-footer{padding:24px 0;border-top:1px solid rgba(15,23,42,0.04)}
+.project-list{list-style:none;padding:0}
+.project-list li{padding:10px 0;border-bottom:1px dashed rgba(0,0,0,0.04)}
+.project-list a{text-decoration:none;color:var(--brand)}
 
-.card{background:var(--card);padding:1rem;border-radius:var(--radius);box-shadow:0 6px 18px rgba(12,14,24,0.04)}
-.profile-card dl{display:grid;grid-template-columns:1fr 1fr;gap:.25rem}
-.profile-card dt{font-size:.8rem;color:var(--muted)}
-.profile-card dd{margin:0;font-weight:600}
+.pdf-embed iframe{width:100%;height:70vh;border-radius:8px;border:1px solid rgba(15,23,42,0.04)}
+.media-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
+.media-card{flex:1;min-width:260px;background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+.media-card img, .media-card video{width:100%;height:auto;border-radius:8px}
+.project-details{margin-top:16px;color:var(--muted)}
 
-.section{padding:2rem 0;border-top:1px solid #f1f5f9}
-.projects{list-style:none;padding:0}
-.projects li{padding:.6rem 0;border-bottom:1px dashed #eef2f7}
-
-.site-footer{padding:1.5rem 0;text-align:center;color:var(--muted);border-top:1px solid #f1f5f9}
-
-@media (max-width:800px){
-  .hero-grid{grid-template-columns:1fr; }
-  .nav{display:none}
-  .container{padding:1rem}
+@media (max-width:760px){
+  .hero{flex-direction:column}
+  .header-grid{align-items:center}
+  .nav a{margin-left:10px}
 }
