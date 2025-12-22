@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PS2 Wireless Driver Kernel — Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a href="index.html" class="logo">Samanvay Upadhyay</a>
+      <nav class="nav">
+        <a href="index.html#about">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>PlayStation 2 Wireless Driver Kernel</h1>
+    <h2>Reverse-engineered PS2 controller port — Raspberry Pi driver + Bluetooth pairing</h2>
+
+    <div class="media-row">
+      <figure class="media-card">
+        <figcaption>Project photo — hardware & controller wiring</figcaption>
+        <img src="assets/ps2_photo.jpg" alt="PS2 controller wiring and Raspberry Pi" />
+      </figure>
+
+      <figure class="media-card">
+        <figcaption>Demo video</figcaption>
+        <video controls preload="metadata" poster="assets/ps2_photo.jpg">
+          <source src="assets/ps2_demo.mp4" type="video/mp4">
+          Your browser does not support the video tag. You can download the video <a href="assets/ps2_demo.mp4">here</a>.
+        </video>
+      </figure>
+    </div>
+
+    <section class="project-details">
+      <h3>Summary / Notes</h3>
+      <p>Write your description, commands to run the driver, Pi kernel notes, or a short README here.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>&copy; <span id="year"></span> Samanvay Upadhyay</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
