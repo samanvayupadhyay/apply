@@ -1,14 +1,14 @@
 :root{
   --bg:#fafafa; --card:#fff; --muted:#6b7280; --accent:#0f172a; --brand:#0b5cff;
-  --radius:12px; --pad:18px; font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --radius:12px; --pad:18px; font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;background:var(--bg);color:#0b1220}
-.container{max-width:980px;margin:0 auto;padding:28px}
+html,body{height:100%;margin:0;background:var(--bg);color:#0b1220;-webkit-font-smoothing:antialiased}
+.container{max-width:1200px;margin:0 auto;padding:28px}
 .site-header{background:transparent;padding:12px 0}
-.header-grid{display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:700;color:var(--accent);text-decoration:none}
-.nav a{margin-left:16px;color:var(--muted);text-decoration:none}
+.header-grid{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:700;color:var(--accent);text-decoration:none;font-size:1.05rem}
+.nav a{margin-left:16px;color:var(--muted);text-decoration:none;font-weight:500}
 .nav a:hover{color:var(--brand)}
 .hero{display:flex;gap:24px;align-items:flex-start;padding:28px 0}
 .hero-left{flex:1}
@@ -16,10 +16,11 @@ html,body{height:100%;margin:0;background:var(--bg);color:#0b1220}
 .lead{color:var(--muted);margin-top:6px}
 .cta-row{margin-top:14px}
 .btn{display:inline-block;padding:10px 14px;border-radius:9px;text-decoration:none;background:var(--brand);color:white;font-weight:600;margin-right:8px}
-.btn.secondary{background:transparent;border:1px solid #dde8ff;color:var(--brand)}
+.btn.secondary{background:transparent;border:1px solid rgba(11,92,255,0.12);color:var(--brand)}
 .section{padding:18px 0}
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.project-tile{display:block;background:var(--card);padding:16px;border-radius:10px;text-decoration:none;color:inherit;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.project-tile{display:block;background:var(--card);padding:18px;border-radius:10px;text-decoration:none;color:inherit;box-shadow:0 6px 18px rgba(15,23,42,0.04);transition:transform .12s ease, box-shadow .12s ease}
+.project-tile:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(15,23,42,0.08)}
 .project-tile h3{margin:0 0 6px 0}
 .small{color:var(--muted);font-size:0.95rem}
 .contact-section p{margin:6px 0}
@@ -27,16 +28,60 @@ html,body{height:100%;margin:0;background:var(--bg);color:#0b1220}
 .site-footer{padding:24px 0;border-top:1px solid rgba(15,23,42,0.04)}
 .project-list{list-style:none;padding:0}
 .project-list li{padding:10px 0;border-bottom:1px dashed rgba(0,0,0,0.04)}
-.project-list a{text-decoration:none;color:var(--brand)}
+.project-list a{text-decoration:none;color:var(--brand);font-weight:600}
 
-.pdf-embed iframe{width:100%;height:70vh;border-radius:8px;border:1px solid rgba(15,23,42,0.04)}
+.pdf-embed{
+  margin-top:18px;
+  /* provides a comfortable margin so header isn't crowded */
+  display:block;
+}
+
+/* PRIMARY FIX: make iframe much larger and responsive */
+.pdf-embed iframe{
+  width:100%;
+  /* Use a large viewport height so PDF is readable.
+     On tall screens this will be very large; min-height ensures baseline usability. */
+  height:85vh;
+  min-height:640px;
+  max-height:95vh;
+  border-radius:10px;
+  border:1px solid rgba(15,23,42,0.06);
+  box-shadow:0 10px 30px rgba(15,23,42,0.05);
+}
+
+/* If you also use object/embed tags, ensure they match */
+.pdf-embed object,
+.pdf-embed embed{width:100%;height:85vh;min-height:640px;border-radius:10px}
+
+/* Media / media row adjustments (PS2 page etc) */
 .media-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
-.media-card{flex:1;min-width:260px;background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
-.media-card img, .media-card video{width:100%;height:auto;border-radius:8px}
+.media-card{flex:1;min-width:300px;background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+.media-card img, .media-card video{width:100%;height:auto;border-radius:8px;display:block}
 .project-details{margin-top:16px;color:var(--muted)}
+
+/* smaller devices: reduce iframe height and tighten spacing */
+@media (max-width:1000px){
+  .container{padding:20px}
+  .pdf-embed iframe{height:72vh;min-height:520px}
+  .project-tile{padding:14px}
+}
 
 @media (max-width:760px){
   .hero{flex-direction:column}
-  .header-grid{align-items:center}
-  .nav a{margin-left:10px}
+  .header-grid{align-items:center;flex-direction:column;gap:8px}
+  .nav a{margin-left:8px}
+  .pdf-embed iframe{height:60vh;min-height:400px}
+  .media-card{min-width:100%}
 }
+
+/* very small phones */
+@media (max-width:420px){
+  .container{padding:14px}
+  .pdf-embed iframe{height:55vh;min-height:320px}
+  .logo{font-size:1rem}
+  .nav a{font-size:0.95rem}
+}
+
+/* minor accessibility improvements */
+a:focus{outline:3px solid rgba(11,92,255,0.15);outline-offset:3px}
+button, .btn{cursor:pointer}
