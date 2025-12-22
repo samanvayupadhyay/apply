@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wavemix: Sensorized Expressive Glove Controller</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a href="index.html" class="logo">Samanvay Upadhyay</a>
+      <nav class="nav">
+        <a href="index.html#about">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>Wavemix</h1>
+    <h2>Sensorized Expressive Glove Controller</h2>
+
+    <p>
+      <a class="btn" href="wavemix.pdf" target="_blank" rel="noopener">Open PDF in new tab</a>
+      <a class="btn secondary" href="wavemix.pdf" download>Download PDF</a>
+    </p>
+
+    <div class="pdf-embed">
+      <!-- embedding PDF inline; some browsers show PDF viewer, others prompt download -->
+      <iframe src="honors_thesis_hybrid_scheduler.pdf" title="Honors Thesis PDF" frameborder="0"></iframe>
+    </div>
+
+    <section class="project-details">
+      <h3>Summary</h3>
+      <p>• Creating embedded firmware for ESP32 to sample IMU, Flex and Force sensors to stream gesture events; implementing gesture-to-audio mapping and low-latency BLE support</p>
+      <p>• Designing power budget and optimizing sampling/duty-cycle to extend usability time on battery.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>&copy; <span id="year"></span> Samanvay Upadhyay</small>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
