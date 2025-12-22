@@ -24,18 +24,22 @@
     
     <div class="media-row">
       <figure class="media-card">
-        <figcaption>Initial Project photo — hardware & controller wiring (no wireless)</figcaption>
+        <figcaption>Project photo — hardware & controller wiring</figcaption>
         <img src="assets/ps2_photo.jpg" alt="PS2 controller wiring and Raspberry Pi" />
       </figure>
 
       <figure class="media-card">
-        <figcaption>Demo video (wireless)</figcaption>
-        <video controls preload="metadata" poster="assets/ps2_photo.jpg">
-          <source src="assets/ps2_demo.mp4" type="video/mp4">
-          Your browser does not support the video tag. You can download the video <a href="assets/ps2_demo.mp4">here</a>.
+        <figcaption>Demo video</figcaption>
+        <video controls preload="metadata" playsinline poster="assets/ps2_photo.jpg" width="720" height="405">
+          <!-- primary: web-friendly H.264/AAC MP4 -->
+          <source src="assets/ps2_demo_compat.mp4" type="video/mp4">
+          <!-- optional fallback: WebM if you created it -->
+          <source src="assets/ps2_demo.webm" type="video/webm">
+          Your browser does not support HTML5 video. You can download the video <a href="assets/ps2_demo_compat.mp4">here</a>.
         </video>
       </figure>
     </div>
+
 
     <section class="project-details">
       <h3>Summary</h3>
