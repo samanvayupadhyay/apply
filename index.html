@@ -7,6 +7,21 @@
   <meta name="description" content="Short professional landing — resume, projects, and contact." />
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .profile-card dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 1.5rem;
+      row-gap: 0.4rem;
+      margin: 0;
+    }
+
+    .profile-card dt,
+    .profile-card dd {
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -33,9 +48,14 @@
 
       <aside class="card profile-card">
         <dl>
-          <dt>Location</dt><dd>Atlanta, GA</dd>
-          <dt>Availability</dt><dd>Summer 2027</dd>
-          <dt>Skills</dt><dd>Embedded C/C++ · Python · RTOS · ML on edge</dd>
+          <dt>Location</dt>
+          <dd>Atlanta, GA</dd>
+
+          <dt>Availability</dt>
+          <dd>Summer 2027</dd>
+
+          <dt>Skills</dt>
+          <dd>Embedded C/C++ · Python · RTOS · ML on edge</dd>
         </dl>
       </aside>
     </section>
